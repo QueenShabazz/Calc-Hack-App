@@ -16,23 +16,7 @@ export default class Form extends React.Component{
       handleSubmit(event) {
         
         event.preventDefault();
-      }
-    
-    render(){
-        // creating Event Listner on Click of Button //
-var event1 = document.getElementById("button");
-event1.addEventListener('click',calculate,false);
-
-// creating Event Listner on Click of Button //
-var event2 = document.getElementById("button1");
-event2.addEventListener('click',reset,false);
-
-
-// Creating Function to Calculate Salary //
-
-function calculate()
-{
-    var salary = document.getElementById("amount").value;
+        var salary = document.getElementById("amount").value;
     
 // If statement for salary under 10600
     if ( salary <= 10600)
@@ -94,25 +78,21 @@ function calculate()
             document.getElementById("NetSalary").innerHTML ="<li>"+ "Your Net Salary is "+NetSalary+"."+"</li>";
 
         }
-    
+        window.location.reload();
     
 }
 
-function reset()
-
-{
-    window.location.reload();
-}
-
+    
+    render(){
         return(
             <>
-                <form  onSubmit={this.handleSubmit} style ={{display: "flex", flexDirection: "row"}}>
+                <form  onSubmit={this.handleSubmit} style ={{display: "flex", flexDirection: "column", }}>
                     <label htmlFor="single"><input name="single"  type="radio"/> Single </label>
                     <label htmlFor="married"><input name="married" type="radio"/> Married </label>
                     <label htmlFor="head"><input name="head" type="radio"/> Head of Household </label>
                     <label htmlFor="income"><input name="income" type="number"/> Adjusted Gross Income </label>
                     <label htmlFor="children"><input name="children" type="number"/>  Number of Children Claimed as Dependents </label>  
-                    <input type="submit" value="Submit" />
+                    <input name="submit" type="submit" value="Submit"/> 
                 </form>
                 <p> Your estimated stimulus check = $</p>
             </>

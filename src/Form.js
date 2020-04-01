@@ -4,7 +4,8 @@ export default class Form extends React.Component{
     constructor(props){
         super(props); 
         this.state={
-            value: ''
+            value: '',
+            status: null
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -16,69 +17,49 @@ export default class Form extends React.Component{
       handleSubmit(event) {
         
         event.preventDefault();
-        var salary = document.getElementById("amount").value;
-    
-// If statement for salary under 10600
-    if ( salary <= 10600)
+        const payment = document.getElementById("payment")
+        const salary = this.state.value
+        const status = this.state.status
+    // Payment if single & salary at or under $75000
+    if (status ==="single" && salary <= 75000)
         {
-            document.getElementById("GrossSalary").innerHTML ="<li>"+ "Your Gross Salary is " +salary+"."+"</li>";
-            
-            document.getElementById("TaxFreeAllowance").innerHTML ="<li>"+ "Your Tax Free Allowance "+ 10600. +"</li>";
-                                                                                                                                                     
-            document.getElementById("NetSalary").innerHTML ="<li>"+ "Your Net Salary is "+salary + "." + "</li>" ;
+            payment.innerHTML=" $1,200"
 
         }
     
-// statement for salary between 10600 & 31000
+//if salary between 75000 & 80000
     
-   else if (( salary >10600) && salary <= 31000 )
+   else if (( salary >75000) && salary <=80000)
         {
-            
-            var Taxableamount =( salary - 10600 ); 
-            
-            var Tax = Taxableamount * 0.20;
-            
-            var NetSalary = salary-Tax;
-            
-            document.getElementById("GrossSalary").innerHTML ="<li>"+"Your Gross Salary is" +salary+"."+"</li>";
-            
-            document.getElementById("TaxFreeAllowance").innerHTML ="<li>"+"Your Tax Free Allowance "+ 10600+"."+"</li>";
-
-            document.getElementById("TaxAt20").innerHTML ="<li>" + "Your Tax At 20% is " + Tax+"."+"</li>";
-
-            document.getElementById("NetSalary").innerHTML ="<li>"+ "Your Net Salary is "+NetSalary+"."+"</li>";
-
+            payment.innerHTML=" $950"
         }
+    //if salary between 80000 & 85000
     
-    // for salary abouve 31000
+   else if (( salary >80000) && salary <=85000)
+   {
+    payment.innerHTML=" $700"
+   }
+   //if salary between 85000 & 90000
+    
+   else if (( salary >85000) && salary <=90000)
+        {
+            payment.innerHTML=" $450"
+        }
+    //if salary between 95000 & 99000
+    
+   else if (( salary >95000) && salary <=99000)
+   {
+    payment.innerHTML=" $200"
+   }
+
+
+    // for salary abouve 99000
     else 
         {
-            
-            var Taxableamount =( 31000 - 10600 ); 
-            
-            var Tax = Taxableamount * 0.20;
-            
-            var Taxableamount2 = ( salary - 31000 )
-            
-            var Tax1 = Taxableamount2 *.40;
-            
-            var totaltax = Tax + Tax1;
-            
-            var NetSalary = salary-totaltax;
-            
-            
-            document.getElementById("GrossSalary").innerHTML ="<li>"+"Your Gross Salary is " +salary+"."+"</li>";
-            
-            document.getElementById("TaxFreeAllowance").innerHTML ="<li>"+"Your Tax Free Allowance "+ 10600+"."+"</li>";
-
-            document.getElementById("TaxAt20").innerHTML = "<li>"+"Your Tax At 20% is " + Tax+"."+"</li>";
-
-            document.getElementById("TaxAt40").innerHTML ="<li>"+ "Your Tax at 40% is " + Tax1+"."+"</li>";
-
-            document.getElementById("NetSalary").innerHTML ="<li>"+ "Your Net Salary is "+NetSalary+"."+"</li>";
-
+            payment.innerHTML=" $0"
+          
         }
-        window.location.reload();
+        
     
 }
 
@@ -94,7 +75,7 @@ export default class Form extends React.Component{
                     <label htmlFor="children"><input name="children" type="number"/>  Number of Children Claimed as Dependents </label>  
                     <input name="submit" type="submit" value="Submit"/> 
                 </form>
-                <p> Your estimated stimulus check = $</p>
+                <p> Your estimated stimulus check = $</p> <span id="payment"></span>
                 <p>*Your information is not collected</p>
             </>
         )

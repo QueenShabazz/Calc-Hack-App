@@ -5,15 +5,21 @@ export default class Form extends React.Component{
         super(props); 
         this.state={
             value: '',
-            status: null
+            status: undefined
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.onSatusChanged = this.onSatusChanged.bind(this);
     }
     handleChange(event) {
         this.setState({value: event.target.value});
       }
     
+      onSatusChanged(event) {
+        this.setState({
+          status: event.target.value
+          });
+      }
       handleSubmit(event) {
         
         event.preventDefault();
@@ -68,7 +74,9 @@ export default class Form extends React.Component{
         return(
             <>
                 <form  onSubmit={this.handleSubmit} style ={{display: "flex", flexDirection: "column", alignItems: "baseline" }}>
-                    <label htmlFor="single"><input name="single"  type="radio"/> Single </label>
+                    <label htmlFor="single"><input name="single"  type="radio" value={this.state.status} 
+                                   checked={this.state.status} 
+                                   onChange={this.onStatusChanged}/> Single </label>
                     <label htmlFor="married"><input name="married" type="radio"/> Married </label>
                     <label htmlFor="head"><input name="head" type="radio"/> Head of Household </label>
                     <label htmlFor="income"><input name="income" type="number"/> Adjusted Gross Income </label>

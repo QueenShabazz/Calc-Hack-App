@@ -86,7 +86,7 @@ export default class Form extends React.Component{
     render(){
         return(
             <>
-                <form  onSubmit={this.handleSubmit} style ={{display: "flex", flexDirection: "column", }}>
+                <form  onSubmit={this.handleSubmit} style ={{display: "flex", flexDirection: "column", alignItems: "baseline" }}>
                     <label htmlFor="single"><input name="single"  type="radio"/> Single </label>
                     <label htmlFor="married"><input name="married" type="radio"/> Married </label>
                     <label htmlFor="head"><input name="head" type="radio"/> Head of Household </label>
@@ -95,6 +95,7 @@ export default class Form extends React.Component{
                     <input name="submit" type="submit" value="Submit"/> 
                 </form>
                 <p> Your estimated stimulus check = $</p>
+                <p>*Your information is not collected</p>
             </>
         )
     }

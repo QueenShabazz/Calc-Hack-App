@@ -18,8 +18,6 @@ export default class Form extends React.Component {
     }
 
     onStatusChanged(event) {
-        // event.preventDefault()
-
         this.setState({
             status: event.target.value
         });
@@ -30,57 +28,40 @@ export default class Form extends React.Component {
         res.style.display="block"
         const salary = this.state.value
         const status = this.state.status
-        console.log('sal', salary)
-        console.log('stat', status)
         // Payment if single & salary at or under $75000
         if (status === 'single' && salary < 75000) {
             this.setState({ payment: "$1,200" })
-
         }
-
         //if salary between 75000 & 80000
 
         if (status === "single" && (salary > 75000) && salary <= 80000) {
             this.setState({ payment: "$950" })
         }
         //if salary between 80000 & 85000
-
         if (status === "single" && (salary > 80000) && salary <= 85000) {
             this.setState({ payment: "$700" })
         }
         //if salary between 85000 & 90000
-
         if (status === "single" && (salary > 85000) && salary <= 90000) {
             this.setState({ payment: "$450" })
         }
         //if salary between 95000 & 99000
-
         if (status === "single" && (salary > 95000) && (salary < 99000)) {
             this.setState({ payment: "$200" })
         }
-
-
         // for salary abouve 99000
         else if (status === "single" && (salary >= 99000)) {
-            console.log('why', salary, status)
             this.setState({ payment: "$0" })
-
         }
-
         if (status === 'head' && salary < 112500) {
             this.setState({ payment: "$1,700" })
-
-
         }
-
         if (status === 'head' && (salary > 112500) && salary <= 117500) {
             this.setState({ payment: "$1,450" })
         }
-
         if (status === 'head' && (salary > 117500) && salary <= 122500) {
             this.setState({ payment: "$1,200" })
         }
-
         if (status === 'head' && (salary > 122500) && salary <= 127500) {
             this.setState({ payment: "$950" })
         }

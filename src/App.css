@@ -21,6 +21,7 @@ label{
   display: flex;
   padding: 10px;
   border: 3px solid grey;
+  justify-content: center;
 
 }
 

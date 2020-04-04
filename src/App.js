@@ -15,7 +15,7 @@ function App() {
         <h1>Stimulus Package Calculator</h1>
        
         <Form />
-        <div style={{display: 'flex', alignItems: 'center', textAlign: 'left'}}>
+        <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'left'}}>
           <iframe src="https://giphy.com/embed/KDgxCt2CTuhnBKn1nm" width="400px" height="300px" frameBorder="0" allowFullScreen></iframe>
           <p style={{margin: '0 10px'}}>What will this calculator help you do? The COVID-19 or Coronavirus pandemic has affected all of us. Determine whether your will receive any benefits for the most recently passed stimulus package bill.
           </p>  

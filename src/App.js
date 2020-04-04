@@ -1,9 +1,13 @@
 import React from 'react';
 import Form from './Form'
+import News from './News'
 import Footer from './Footer'
 import './App.css';
 
+
 function App() {
+  
+
   return (
     <>
       <div className="App">
@@ -11,6 +15,9 @@ function App() {
         <p>What will this calculator help you do? The COVID-19 or Coronavirus pandemic has affected all of us. Below is a calulator to help you determine whether your will receive any benefits for the most recently passed stimulus package bill. </p>
         <Form />
       </div>
+      {/* New component not displaying initially intended news API stream */}
+      <News />
+      
       <Footer />
     </>
   );

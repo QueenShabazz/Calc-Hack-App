@@ -119,6 +119,7 @@ export default class Form extends React.Component {
                             value="single"
                             checked={this.state.status === "single"}
                             onChange={this.onStatusChanged}
+                            required
                         /> Single
                     </label>
                     <label>
@@ -137,10 +138,11 @@ export default class Form extends React.Component {
                             value="head"
                             checked={this.state.status === "head"}
                             onChange={this.onStatusChanged}
+    
                         /> Head of Household
                     </label>
                     <div className="form-group">
-                        <label htmlFor="income"><input name="income" type="number" onChange={this.handleChange} /> Adjusted Gross Income </label>
+                        <label htmlFor="income"><input name="income" type="number" onChange={this.handleChange} required /> Adjusted Gross Income </label>
                     </div>
 
                     <input name="submit" type="submit" value="Submit" />

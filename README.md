@@ -14,6 +14,8 @@ I initially created this calculator as a quick coding excercise, and I thought i
 
 In the project directory, you can run:
 
+![Search](./1.png)
+
 ### `npm start`
 
 Runs the app in the development mode.<br />

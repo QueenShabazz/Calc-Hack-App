@@ -147,7 +147,7 @@ export default class Form extends React.Component {
                             onChange={this.onStatusChanged}
                         /> Married
                     </label>
-                    <label htmlFor="head">
+                    <label>
                         <input
                             type="radio"
                             value="head"

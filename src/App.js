@@ -2,7 +2,6 @@ import React from 'react';
 import Form from './Form'
 import News from './News'
 import Footer from './Footer'
-import ReactPlayer from 'react-player'
 import { TwitterTimelineEmbed, TwitterShareButton, TwitterFollowButton, TwitterHashtagButton, TwitterMentionButton, TwitterTweetEmbed, TwitterMomentShare, TwitterDMButton, TwitterVideoEmbed, TwitterOnAirButton } from 'react-twitter-embed';
 import './App.css';
 
@@ -14,9 +13,13 @@ function App() {
     <>
       <div className="App">
         <h1>Stimulus Package Calculator</h1>
-        <p>What will this calculator help you do? The COVID-19 or Coronavirus pandemic has affected all of us. Below is a calculator to help you determine whether your will receive any benefits for the most recently passed stimulus package bill. </p>
-        <ReactPlayer url='./gif.mp4' playing />
+       
         <Form />
+        <div style={{display: 'flex', alignItems: 'center', textAlign: 'left'}}>
+          <iframe src="https://giphy.com/embed/KDgxCt2CTuhnBKn1nm" width="400px" height="300px" frameBorder="0" allowFullScreen></iframe>
+          <p style={{margin: '0 10px'}}>What will this calculator help you do? The COVID-19 or Coronavirus pandemic has affected all of us. Determine whether your will receive any benefits for the most recently passed stimulus package bill.
+          </p>  
+        </div>
       {/* New component not displaying initially intended news API stream */}
       <News />
       <div id="social">

@@ -114,6 +114,7 @@ export default class Form extends React.Component {
                 <form onSubmit={this.handleSubmit} style={{ display: "flex", flexDirection: "column", alignItems: "baseline" }}>
                     <label>
                         <input
+                            name="status"
                             type="radio"
                             value="single"
                             checked={this.state.status === "single"}
@@ -122,6 +123,7 @@ export default class Form extends React.Component {
                     </label>
                     <label>
                         <input
+                            name="status"
                             type="radio"
                             value="married"
                             checked={this.state.status === "married"}
@@ -130,6 +132,7 @@ export default class Form extends React.Component {
                     </label>
                     <label>
                         <input
+                            name="status"
                             type="radio"
                             value="head"
                             checked={this.state.status === "head"}

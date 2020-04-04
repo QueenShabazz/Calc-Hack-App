@@ -145,7 +145,7 @@ export default class Form extends React.Component {
                         <label htmlFor="income"><input name="income" type="number" onChange={this.handleChange} required /> Adjusted Gross Income </label>
                     </div>
 
-                    <input name="submit" type="submit" value="Submit" />
+                    <input name="submit" type="submit" value="Submit" style={{background: 'white'}} />
                 </form>
                <p className="result" style={{display: "none"}}>
                With a filing status of {this.state.status}, and an estimated salary of ${this.state.value} you should expect to see a stimulus payment of {this.state.payment}

@@ -1,3 +1,11 @@
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    background: #cecece;
+    padding: 20px;
+}
+
 .result{
     font-weight: 900;
     margin: 10% 0;

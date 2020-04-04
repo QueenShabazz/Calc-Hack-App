@@ -1,90 +1,170 @@
 import React from 'react'
 
-export default class Form extends React.Component{
-    constructor(props){
-        super(props); 
-        this.state={
+export default class Form extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
             value: '',
-            status: undefined
+            status: '',
+            payment: '',
         }
+        this.onStatusChanged = this.onStatusChanged.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.onSatusChanged = this.onSatusChanged.bind(this);
     }
     handleChange(event) {
-        this.setState({value: event.target.value});
-      }
-    
-      onSatusChanged(event) {
+        event.preventDefault()
+        this.setState({ value: event.target.value });
+    }
+
+    onStatusChanged(event) {
+        // event.preventDefault()
+
         this.setState({
-          status: event.target.value
-          });
-      }
-      handleSubmit(event) {
-        
+            status: event.target.value
+        });
+    }
+    handleSubmit(event) {
         event.preventDefault();
-        const payment = document.getElementById("payment")
+        const res = document.querySelector('.result')
+        res.style.display="block"
         const salary = this.state.value
         const status = this.state.status
-    // Payment if single & salary at or under $75000
-    if (status ==="single" && salary <= 75000)
-        {
-            payment.innerHTML=" $1,200"
+        console.log('sal', salary)
+        console.log('stat', status)
+        // Payment if single & salary at or under $75000
+        if (status === 'single' && salary < 75000) {
+            this.setState({ payment: "$1,200" })
+
+        }
+
+        //if salary between 75000 & 80000
+
+        if (status === "single" && (salary > 75000) && salary <= 80000) {
+            this.setState({ payment: "$950" })
+        }
+        //if salary between 80000 & 85000
+
+        if (status === "single" && (salary > 80000) && salary <= 85000) {
+            this.setState({ payment: "$700" })
+        }
+        //if salary between 85000 & 90000
+
+        if (status === "single" && (salary > 85000) && salary <= 90000) {
+            this.setState({ payment: "$450" })
+        }
+        //if salary between 95000 & 99000
+
+        if (status === "single" && (salary > 95000) && (salary < 99000)) {
+            this.setState({ payment: "$200" })
+        }
+
+
+        // for salary abouve 99000
+        else if (status === "single" && (salary >= 99000)) {
+            console.log('why', salary, status)
+            this.setState({ payment: "$0" })
+
+        }
+
+        if (status === 'head' && salary < 112500) {
+            this.setState({ payment: "$1,700" })
+
+
+        }
+
+        if (status === 'head' && (salary > 112500) && salary <= 117500) {
+            this.setState({ payment: "$1,450" })
+        }
+
+        if (status === 'head' && (salary > 117500) && salary <= 122500) {
+            this.setState({ payment: "$1,200" })
+        }
+
+        if (status === 'head' && (salary > 122500) && salary <= 127500) {
+            this.setState({ payment: "$950" })
+        }
+        if (status === 'head' && (salary > 122500) && salary <= 127500) {
+            this.setState({ payment: "$950" })
+        }
+        if (status === 'head' && (salary > 127500) && salary <= 132500) {
+            this.setState({ payment: "$700" })
+        }
+        if (status === 'head' && (salary > 132500) && salary <= 142500) {
+            this.setState({ payment: "$200" })
+        }
+        else if (status === 'head' && (salary >= 146500)) {
+            this.setState({ payment: "$0" })
+
+        }
+
+        if (status === 'married' && salary < 150000) {
+            this.setState({ payment: "$2,400" })
+
+
+        }
+
+
+        if (status === 'married' && (salary > 150000) && salary <= 160000) {
+            this.setState({ payment: "$1,900" })
+        }
+
+        if (status === 'married' && (salary > 160000) && salary <= 170000) {
+            this.setState({ payment: "$1,400" })
+        }
+
+        if (status === 'married' && (salary > 170000) && salary <= 180000) {
+            this.setState({ payment: "$900" })
+        }
+
+        if (status === 'married' && (salary > 180000) && (salary <= 190000)) {
+            this.setState({ payment: "$400" })
+        }
+        else if (status === 'married' && (salary >= 198000)) {
+            this.setState({ payment: "$0" })
 
         }
     
-//if salary between 75000 & 80000
-    
-   else if (( salary >75000) && salary <=80000)
-        {
-            payment.innerHTML=" $950"
-        }
-    //if salary between 80000 & 85000
-    
-   else if (( salary >80000) && salary <=85000)
-   {
-    payment.innerHTML=" $700"
-   }
-   //if salary between 85000 & 90000
-    
-   else if (( salary >85000) && salary <=90000)
-        {
-            payment.innerHTML=" $450"
-        }
-    //if salary between 95000 & 99000
-    
-   else if (( salary >95000) && salary <=99000)
-   {
-    payment.innerHTML=" $200"
-   }
 
-
-    // for salary abouve 99000
-    else 
-        {
-            payment.innerHTML=" $0"
-          
-        }
-        
-    
-}
-
-    
-    render(){
-        return(
+    }
+    render() {
+        return (
             <>
-                <form  onSubmit={this.handleSubmit} style ={{display: "flex", flexDirection: "column", alignItems: "baseline" }}>
-                    <label htmlFor="single"><input name="single"  type="radio" value={this.state.status} 
-                                   checked={this.state.status} 
-                                   onChange={this.onStatusChanged}/> Single </label>
-                    <label htmlFor="married"><input name="married" type="radio"/> Married </label>
-                    <label htmlFor="head"><input name="head" type="radio"/> Head of Household </label>
-                    <label htmlFor="income"><input name="income" type="number"/> Adjusted Gross Income </label>
-                    <label htmlFor="children"><input name="children" type="number"/>  Number of Children Claimed as Dependents </label>  
-                    <input name="submit" type="submit" value="Submit"/> 
+                <form onSubmit={this.handleSubmit} style={{ display: "flex", flexDirection: "column", alignItems: "baseline" }}>
+                    <label>
+                        <input
+                            type="radio"
+                            value="single"
+                            checked={this.state.status === "single"}
+                            onChange={this.onStatusChanged}
+                        /> Single
+                    </label>
+                    <label>
+                        <input
+                            type="radio"
+                            value="married"
+                            checked={this.state.status === "married"}
+                            onChange={this.onStatusChanged}
+                        /> Married
+                    </label>
+                    <label htmlFor="head">
+                        <input
+                            type="radio"
+                            value="head"
+                            checked={this.state.status === "head"}
+                            onChange={this.onStatusChanged}
+                        /> Head of Household
+                    </label>
+                    <div className="form-group">
+                        <label htmlFor="income"><input name="income" type="number" onChange={this.handleChange} /> Adjusted Gross Income </label>
+                    </div>
+
+                    <input name="submit" type="submit" value="Submit" />
                 </form>
-                <p> Your estimated stimulus check = $</p> <span id="payment"></span>
-                <p>*Your information is not collected</p>
+               <p className="result" style={{display: "none"}}>
+               With a filing status of {this.state.status}, you should expect to see a subsidy of {this.state.payment}
+                </p>
+                <small>*Your information is not collected</small>
             </>
         )
     }

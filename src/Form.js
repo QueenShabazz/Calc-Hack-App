@@ -143,7 +143,7 @@ export default class Form extends React.Component {
                     <input name="submit" type="submit" value="Submit" />
                 </form>
                <p className="result" style={{display: "none"}}>
-               With a filing status of {this.state.status}, you should expect to see a subsidy of {this.state.payment}
+               With a filing status of {this.state.status}, and an estimated salary of {this.state.value} you should expect to see a stimulus payment of {this.state.payment}
                 </p>
                 <small>*Your information is not collected</small>
             </>

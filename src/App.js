@@ -17,7 +17,6 @@ function App() {
         <Form />
       {/* New component not displaying initially intended news API stream */}
       <News />
-      <h3>Stay Informed</h3>
       <div id="social">
         <TwitterTimelineEmbed sourceType="profile" screenName="CDCgov" options={{height: 400}} />
         <TwitterTimelineEmbed sourceType="profile" screenName="Corona_Update_" options={{height: 400}} />
